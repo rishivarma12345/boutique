@@ -1,0 +1,71 @@
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,serif;background:#f3d9d9;color:#30231f}header{display:flex;justify-content:space-between;align-items:center;padding:20px 7%;background:#fffaf4;border-bottom:1px solid #eadfd3;position:sticky;top:0;z-index:5}.brand{font-size:25px;font-weight:700;letter-spacing:.5px}nav{display:flex;gap:20px}a{color:inherit;text-decoration:none}.hero{min-height:70vh;padding:10% 9%;display:flex;align-items:center;background:linear-gradient(90deg,#f3e6d9,#fffaf5)}.hero h1{font-size:clamp(42px,7vw,78px);max-width:760px;margin:15px 0}.hero p{font-size:19px;max-width:650px;line-height:1.7}.eyebrow{letter-spacing:3px;text-transform:uppercase}.btn,.whatsapp{display:inline-block;padding:13px 20px;border-radius:5px;background:#5c2729;color:white;border:0;margin:8px 6px 8px 0;cursor:pointer}.ghost{background:transparent;color:#5c2729;border:1px solid #5c2729}.cards,.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:50px 7%}.cards a{padding:35px;background:#fff;border:1px solid #eadfd3}.container{padding:45px 7%}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.filters button{padding:10px 14px;border:1px solid #d7c7b8;background:white;border-radius:4px;cursor:pointer;transition:background-color .15s ease,color .15s ease,border-color .15s ease}.filters button:hover{border-color:#8b4513}.filters button.active{background:#8b4513;color:#fff;border-color:#8b4513;cursor:default}.grid{padding:0;grid-template-columns:repeat(3,1fr)}.product{background:white;border:1px solid #eadfd3}.photo{height:300px;background:#eadfd3;display:flex;align-items:center;justify-content:center;color:#80685b}.photo img{width:100%;height:100%;object-fit:cover}.pbody{padding:20px}.stock{color:#287044}.out{color:#a22}.form-wrap{max-width:600px;margin:60px auto;padding:20px}.form-wrap form{background:white;padding:35px;border:1px solid #eadfd3}.form-wrap input,.form-wrap select,.form-wrap textarea{width:100%;padding:13px;margin:7px 0;border:1px solid #d8c8bb}.form-wrap textarea{min-height:120px}footer{text-align:center;padding:40px}@media(max-width:750px){header{align-items:flex-start;gap:15px;flex-direction:column}.cards,.grid{grid-template-columns:1fr}.hero{min-height:65vh;padding:14% 7%}.hero h1{font-size:45px}.photo{height:260px}}
+/* Appointment success popup */
+.modal[hidden] { display: none; }
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0,0,0,.55);
+  z-index: 1000;
+}
+.modal-card {
+  position: relative;
+  width: min(440px, 100%);
+  padding: 32px 28px 28px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  text-align: center;
+}
+.modal-card h2 { margin-top: 0; }
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+.redirect-message{font-size:13px;color:#80685b;margin-top:10px}.modal-actions .btn{min-width:150px}
+
+.admin-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0 25px}.admin-tabs .btn{margin:0}.admin-tabs .admin-tab{cursor:pointer;transition:background-color .15s ease,color .15s ease,border-color .15s ease}.admin-tabs .admin-tab.active{background:#8b4513;color:#fff;border-color:#8b4513}.admin-tabs .admin-tab.active:hover{background:#73370f;border-color:#73370f}.admin-tabs .admin-tab.ghost{background:transparent;color:inherit}.container input,.container select,.container textarea{padding:11px;border:1px solid #d8c8bb;border-radius:5px;background:white}.container label{display:block;margin:8px 0}.container textarea{width:100%;box-sizing:border-box}.container .btn[disabled]{opacity:.55;cursor:not-allowed}@media(max-width:750px){.container form>div[style*="grid-template-columns"],.container section>div[style*="grid-template-columns"]{grid-template-columns:1fr!important}.admin-tabs{width:100%}}
+
+
+/* Consistent interaction states for every clickable control */
+button, a, select, input[type="file"] { cursor: pointer; }
+.btn, .filters button, .admin-tab, nav a, .cards a {
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+}
+.btn:hover, .filters button:hover, .admin-tab:hover {
+  filter: brightness(.94);
+}
+.btn:active, .filters button:active, .admin-tab:active, nav a:active, .cards a:active {
+  transform: translateY(1px);
+}
+.btn:focus-visible, .filters button:focus-visible, .admin-tab:focus-visible, nav a:focus-visible, .cards a:focus-visible {
+  outline: 3px solid rgba(139,69,19,.28);
+  outline-offset: 2px;
+}
+nav a { padding: 7px 9px; border-radius: 5px; }
+nav a:hover { background: #f0e4d8; color: #5c2729; }
+nav a.current { background: #8b4513; color: #fff; }
+nav a.current:hover { background: #73370f; color: #fff; }
+.cards a:hover { border-color: #8b4513; box-shadow: 0 6px 18px rgba(48,35,31,.08); }
+.filters button.active, .filters button.active:hover { cursor: default; filter:none; }
+.admin-tabs .admin-tab.active, .admin-tabs .admin-tab.active:hover {
+  background:#8b4513; color:#fff; border-color:#8b4513; cursor:default; filter:none;
+}
+.admin-tabs .admin-tab.ghost:not(.active) { background:transparent; color:#5c2729; border:1px solid #5c2729; }
+.admin-tabs .admin-tab.ghost:not(.active):hover { background:#f0e4d8; }
